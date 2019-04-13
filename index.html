@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #app{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input v-model="name">
+        <h1>{{name}}</h1>
+        <button v-on:click="clickMe">click me!</button>
+    </div>
+</body>
+<script src="js/observer.js"></script>
+<script src="js/watcher.js"></script>
+<script src="js/compiler.js"></script>
+<script src="js/index.js"></script>
+<script type="text/javascript">
+    new miniVue({
+        el: '#app',
+        data: {
+            title: 'hello vue',
+            name: 'goxcheer'
+        },
+        methods: {
+            clickMe: function () {
+                this.title = 'hello vue';
+            }
+        },
+        mounted: function () {
+            window.setTimeout(() => {
+                this.title = '小白前端程序员';
+            }, 1000);
+        }
+    });
+</script>
+</html>
